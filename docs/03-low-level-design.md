@@ -1,6 +1,8 @@
-# テーブル設計書
+# Low-Level Design Document
 
-## General
+## 1. データベース設計
+
+### 1-1. 共通方針
 
 - DBライブラリ: better-sqlite3を採用
 - DB保存先: context.globalStorageUri
@@ -20,7 +22,7 @@
     - その後、ハートビートで定期的に最新化
     - セッションが正常終了した場合、その正確な時刻が最終値となる
 
-## Sessions
+### 1-2. Sessions
 
 | カラム名   | データ型            |
 | ---------- | ------------------- |
@@ -29,7 +31,7 @@
 | started_at | TEXT NOT NULL       |
 | ended_at   | TEXT NOT NULL       |
 
-## FileActivities
+### 1-3. FileActivities
 
 | カラム名   | データ型                                 |
 | ---------- | ---------------------------------------- |
@@ -39,7 +41,7 @@
 | started_at | TEXT NOT NULL                            |
 | ended_at   | TEXT NOT NULL                            |
 
-## Inactivities
+### 1-4. Inactivities
 
 | カラム名         | データ型                                       |
 | ---------------- | ---------------------------------------------- |
@@ -49,7 +51,7 @@
 | ended_at         | TEXT NOT NULL                                  |
 | type             | TEXT NOT NULL REFERENCES InactivityTypes(type) |
 
-## InactivityTypes
+### 1-5. InactivityTypes
 
 | カラム名    | データ型         |
 | ----------- | ---------------- |

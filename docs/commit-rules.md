@@ -52,6 +52,6 @@ git add package.json package-lock.json
 git commit -m "chore: バージョンを1.0.0に更新"
 git switch master
 git merge --no-ff develop -m "feat: 1.0.0をリリース"
-git git tag v1.0.0
+git tag v1.0.0
 git switch develop
 ```
