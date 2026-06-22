@@ -33,8 +33,12 @@ Goal: リポジトリの開発環境セットアップ
 
 Goal: MVPの設計
 
-- [x] MVP仕様書.md作成
-- [x] テーブル設計書作成
+- [x] SRS（要件定義 / 01-requirements.md）作成
+- [x] SRSレビュー
+- [x] HLD（基本設計 / 02-high-level-design.md）作成
+- [x] HLDレビュー
+- [x] LLD（詳細設計 / 03-low-level-design.md）作成
+- [x] LLDレビュー（全13章）
 
 ## Milestone C: 実装
 
@@ -52,22 +56,27 @@ Goal: MVP機能の実装
   - [ ] Inactivity の作成
 - [ ] テスト: DB初期化処理 (PRAGMA / スキーマ / 初期シードの検証)
 - [ ] テスト: レコード操作関数 (各レコードの作成 / ended_at 更新の検証)
+- [ ] コードレビュー (C-1)
 
 ### C-2. 作業時間計測
 
-> ユニットテストは対象外 (VS Code API 依存。Milestone D の手動確認でカバー)
+> 依存注入によりコアは単体テスト可 (偽クロック + 実インメモリDB)。VS Code イベント購読の配線部のみ 結合テスト / Milestone D でカバー (LLD 13章)
 
 - [ ] セッション計測の開始 (Workspace起動時)
 - [ ] セッション計測の終了 (Workspace終了時, deactivate)
-- [ ] ハートビートによる定期保存 (デフォルト1分毎の ended_at 更新)
+- [ ] ハートビートによる定期保存 (デフォルト30秒毎の ended_at 更新)
 - [ ] 複数ワークスペース並行稼働の対応 (セッションを個別管理)
+- [ ] テスト: セッション計測 (start/heartbeat/stop による Session 行の生成・ended_at 更新)
+- [ ] コードレビュー (C-2)
 
 ### C-3. ファイル別計測
 
-> ユニットテストは対象外 (VS Code API 依存。Milestone D の手動確認でカバー)
+> 依存注入によりコアは単体テスト可 (FileRef + 偽クロック + 実インメモリDB)。VS Code イベント購読の配線部のみ 結合テスト / Milestone D でカバー (LLD 13章)
 
 - [ ] アクティブファイルの切り替え検出 (onDidChangeActiveTextEditor)
 - [ ] FileActivity の開始 / 終了の紐付け
+- [ ] テスト: ファイル別計測 (アクティブ切替での FileActivity 開始/終了, file スキーム判定)
+- [ ] コードレビュー (C-3)
 
 ### C-4. 非作業時間検出
 
@@ -76,13 +85,16 @@ Goal: MVP機能の実装
 - [ ] sleep 検出 (スリープ復帰, 閾値1min)
 - [ ] 閾値判定と優先順位制御 (sleep > unfocused > idle)
 - [ ] 閾値超過時のみ Inactivity レコード化
-- [ ] テスト: 閾値判定と優先順位制御 (閾値超過判定 / 優先順位 sleep>unfocused>idle)
+- [ ] テスト: 非作業検出の状態機械 (idle/unfocused/sleep の区間生成 / 閾値超過判定 / 優先順位 sleep>unfocused>idle / sleepギャップによる truncate)
+- [ ] コードレビュー (C-4)
 
 ### C-5. 設定
 
 - [ ] タイムゾーン判定の実装 (Intl 利用 / UTCフォールバック)
-- [ ] codeWatch.timezone 設定値の読み込み
-- [ ] テスト: タイムゾーン判定 (Intl 取得成功 / 取得失敗時の UTC フォールバック)
+- [ ] package.json 設定スキーマ (codeWatch.timezone を主要ゾーンの enum ドロップダウン + (custom) / codeWatch.timezoneCustom)
+- [ ] 設定値の読み込み (timezone / (custom)時は timezoneCustom / 空はOS自動 → UTCフォールバック)
+- [ ] テスト: タイムゾーン判定 (主要ゾーン選択 / custom / Intl 自動判定 / 不正時の UTC フォールバック)
+- [ ] コードレビュー (C-5)
 
 ### C-6. 作業記録閲覧 (WebView)
 
@@ -102,6 +114,7 @@ Goal: MVP機能の実装
   - [ ] ファイル別作業時間の表示
 - [ ] 日付切り替えボタンの実装
 - [ ] テスト: 集計ロジック (日付按分 / ファイル別算出 / ワークスペース別・トータル集計)
+- [ ] コードレビュー (C-6)
 
 ## Milestone D: パッケージング・リリース
 
