@@ -1,11 +1,5 @@
 ---
 Description: 開発者用TODOリスト
-Purpose:
-  - タスク実施 → 次のタスク考案 → タスク実施 のループではなく、タスク考案 → タスク実施と全体のプロセスを二分化したい
-  - ファーストステップを軽くすることで、始めやすい・続けやすい状況にしたい
-Rule:
-  - すべてのタスクは、実行可能な単位に細分化する
-  - 細分化の目安は30分とする
 ---
 
 # TODO
@@ -26,12 +20,13 @@ Goal: リポジトリの開発環境セットアップ
   - [x] package.json / tsconfig.json
   - [x] ESLint / Prettier 設定
   - [x] better-sqlite3 ネイティブ依存の動作検証 (src/db/verifySqlite.ts)
-- [ ] WebView ビルド構成 (TypeScript)
-  - [ ] webview 用 tsconfig 追加 (tsconfig.webview.json: module ESNext / lib DOM / outDir media)
-  - [ ] compile / watch スクリプトに webview ビルドを追加
-  - [ ] 生成物 media/main.js を .gitignore へ追加
-- [ ] package.json コマンド定義 (contributes.commands)
-- [ ] テスト基盤セットアップ (Vitest 導入 / npm test スクリプト)
+- [x] WebView ビルド構成 (TypeScript)
+  - [x] webview 用 tsconfig 追加 (tsconfig.webview.json: module ESNext / lib DOM / outDir media)
+  - [x] compile / watch スクリプトに webview ビルドを追加
+  - [x] 生成物 media/main.js を .gitignore へ追加
+- [x] package.json コマンド定義 (contributes.commands)
+- [x] テスト基盤セットアップ (Vitest 導入 / npm test スクリプト)
+- [ ] セットアップレビュー
 
 ## Milestone B: 設計
 
