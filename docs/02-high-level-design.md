@@ -3,6 +3,7 @@
 ## 1. 技術スタック
 
 - TypeScript
+  - 拡張ホスト・WebView（ブラウザ側）とも TypeScript で実装する
 - SQLite
 
 ## 2. 作業時間記録

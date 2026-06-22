@@ -26,6 +26,10 @@ Goal: リポジトリの開発環境セットアップ
   - [x] package.json / tsconfig.json
   - [x] ESLint / Prettier 設定
   - [x] better-sqlite3 ネイティブ依存の動作検証 (src/db/verifySqlite.ts)
+- [ ] WebView ビルド構成 (TypeScript)
+  - [ ] webview 用 tsconfig 追加 (tsconfig.webview.json: module ESNext / lib DOM / outDir media)
+  - [ ] compile / watch スクリプトに webview ビルドを追加
+  - [ ] 生成物 media/main.js を .gitignore へ追加
 - [ ] package.json コマンド定義 (contributes.commands)
 - [ ] テスト基盤セットアップ (Vitest 導入 / npm test スクリプト)
 
@@ -100,7 +104,9 @@ Goal: MVP機能の実装
 
 - [ ] WebView パネル実装
   - [ ] WebviewViewProvider の登録 (codeWatch.activityView)
-  - [ ] WebView HTML / CSS 雛形の作成
+  - [ ] WebView HTML / CSS 雛形の作成 (main.js は src/webview-ui/main.ts から生成)
+  - [ ] 共有メッセージ型を types.ts に定義 (MessageToExtension / MessageToWebview)
+  - [ ] src/webview-ui/main.ts (TS, ブラウザ側) 実装
   - [ ] 拡張 ⇔ WebView 間メッセージング (集計データ受け渡し / 日付切り替え)
 - [ ] 集計ロジック実装
   - [ ] 区間の日付按分ユーティリティ (タイムゾーン基準で [started_at, ended_at] を日ごとに分割)
