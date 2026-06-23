@@ -1,0 +1,26 @@
+# internal docs
+docs/
+.agents/
+.ai/
+.codex/
+.claude/
+AGENTS.md
+CLAUDE.md
+
+# configs
+.gitignore
+tsconfig.json
+tsconfig.webview.json
+eslint.config.mjs
+
+# other
+src/
+**/*.ts
+**/*.map
+.vscode/**
+
+# better-sqlite3: ship only the runtime binary & JS; drop C sources and build scratch
+node_modules/better-sqlite3/deps/**
+node_modules/better-sqlite3/src/**
+node_modules/better-sqlite3/build/**
+!node_modules/better-sqlite3/build/Release/better_sqlite3.node

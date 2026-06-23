@@ -1,0 +1,122 @@
+{
+  "name": "code-watch",
+  "displayName": "Code Watch",
+  "description": "Track the time you spend working in VS Code.",
+  "version": "0.1.0",
+  "publisher": "shunta-yachi",
+  "license": "ISC",
+  "type": "commonjs",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shunta-yachi/code-watch"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "extensionKind": [
+    "workspace"
+  ],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "code-watch",
+          "title": "Code Watch",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "code-watch": [
+        {
+          "id": "codeWatch.activityView",
+          "name": "Work Time",
+          "type": "webview",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "codeWatch.refresh",
+        "title": "Refresh",
+        "category": "Code Watch",
+        "icon": "$(refresh)"
+      }
+    ],
+    "configuration": {
+      "title": "Code Watch",
+      "properties": {
+        "codeWatch.timezone": {
+          "type": "string",
+          "enum": [
+            "",
+            "Asia/Tokyo",
+            "UTC",
+            "Europe/London",
+            "America/New_York",
+            "America/Los_Angeles",
+            "Australia/Sydney",
+            "(custom)"
+          ],
+          "enumItemLabels": [
+            "Use system timezone (auto-detect)",
+            "Asia/Tokyo",
+            "UTC",
+            "Europe/London",
+            "America/New_York",
+            "America/Los_Angeles",
+            "Australia/Sydney",
+            "Other (set codeWatch.timezoneCustom)"
+          ],
+          "default": "",
+          "markdownDescription": "Timezone used in the work record view. Empty = system timezone (falls back to UTC). Choose `(custom)` to use `#codeWatch.timezoneCustom#`."
+        },
+        "codeWatch.timezoneCustom": {
+          "type": "string",
+          "default": "",
+          "markdownDescription": "Custom IANA timezone name (e.g. `Pacific/Chatham`). Used only when `#codeWatch.timezone#` is set to `(custom)`."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "package:linux-x64": "vsce package --target linux-x64",
+    "compile": "run-s compile:ext compile:webview",
+    "compile:ext": "tsc -p .",
+    "compile:webview": "tsc -p tsconfig.webview.json",
+    "watch": "run-p watch:ext watch:webview",
+    "watch:ext": "tsc -w -p .",
+    "watch:webview": "tsc -w -p tsconfig.webview.json",
+    "test": "vitest run",
+    "lint": "eslint src",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.27.0",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node": "18.19.0",
+    "@types/vscode": "1.85.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "@vscode/vsce": "^3.9.2",
+    "eslint": "^9.27.0",
+    "npm-run-all2": "^9.0.2",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.1",
+    "vitest": "^3.2.6"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.10.0"
+  }
+}

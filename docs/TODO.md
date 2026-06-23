@@ -26,7 +26,7 @@ Goal: リポジトリの開発環境セットアップ
   - [x] 生成物 media/main.js を .gitignore へ追加
 - [x] package.json コマンド定義 (contributes.commands)
 - [x] テスト基盤セットアップ (Vitest 導入 / npm test スクリプト)
-- [ ] セットアップレビュー
+- [x] セットアップレビュー
 
 ## Milestone B: 設計
 

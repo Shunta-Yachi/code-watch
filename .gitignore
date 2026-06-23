@@ -1,5 +1,8 @@
+# General
 node_modules/
 dist/
 *.vsix
-.DS_Store
-*.log
+
+# WebView ビルド生成物
+media/main.js
+media/main.js.map

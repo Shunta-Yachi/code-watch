@@ -6,10 +6,12 @@
 
 - 開発はすべて develop ブランチで行う
 - コミット・マージについては、 docs/commit-rules.md を参照してこれを行う
+- 原則、TypeScriptで書くすべての要素にはTSDocを記載する
+- TypeScriptファイル内におけるTSDoc・コメントはすべて英語で記述する
 
 # About AI-Driven Development
 
-- このリポジトリの開発ではADD(Ai-Driven Development)を用いる
+- このリポジトリの開発ではAIDD(Ai-Driven Development)を用いる
 - ユーザーとAIの協業体制について:
 
 | 内容         | ユーザー | AI     |
