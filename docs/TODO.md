@@ -61,11 +61,11 @@ Goal: MVP機能の実装
 
 > 依存注入によりコアは単体テスト可 (偽クロック + 実インメモリDB)。VS Code イベント購読の配線部のみ 結合テスト / Milestone D でカバー (LLD 13章)
 
-- [ ] セッション計測の開始 (Workspace起動時)
-- [ ] セッション計測の終了 (Workspace終了時, deactivate)
-- [ ] ハートビートによる定期保存 (デフォルト30秒毎の ended_at 更新)
-- [ ] 複数ワークスペース並行稼働の対応 (セッションを個別管理)
-- [ ] テスト: セッション計測 (start/heartbeat/stop による Session 行の生成・ended_at 更新)
+- [x] セッション計測の開始 (Workspace起動時)
+- [x] セッション計測の終了 (Workspace終了時, deactivate)
+- [x] ハートビートによる定期保存 (デフォルト30秒毎の ended_at 更新)
+- [x] 複数ワークスペース並行稼働の対応 (セッションを個別管理)
+- [x] テスト: セッション計測 (start/heartbeat/stop による Session 行の生成・ended_at 更新)
 - [ ] コードレビュー (C-2)
 
 ### C-3. ファイル別計測
