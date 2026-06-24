@@ -31,7 +31,8 @@ Conventional Commitsとの対応は以下
 ## 運用方法
 
 - すべての開発は develop ブランチで行う
-- 実装とテストがひと段落ついた段階で、ユーザーによるレビューを行う
+- ソースコードとテストコードを書き、コミット
+- ユーザーによるレビュー・修正
 - ユーザーのレビューが終了したとき、package.jsonのversionを上げ、それ単体のコミットを作る
 - その後ただちに develop ブランチを master ブランチにマージする
   - この際 non-ff でマージする
@@ -52,6 +53,6 @@ git add package.json package-lock.json
 git commit -m "chore: バージョンを1.0.0に更新"
 git switch master
 git merge --no-ff develop -m "feat: 1.0.0をリリース"
-git git tag v1.0.0
+git tag v1.0.0
 git switch develop
 ```
