@@ -109,4 +109,16 @@ describe("SqliteRepository", () => {
       type: "idle",
     });
   });
+
+  it("throws when touching a non-existent session", () => {
+    expect(() =>
+      repository.touchSession(999, "2026-06-24T00:00:30.000Z"),
+    ).toThrow(/no row with id=999/);
+  });
+
+  it("throws when touching a non-existent file activity", () => {
+    expect(() =>
+      repository.touchFileActivity(999, "2026-06-24T00:01:30.000Z"),
+    ).toThrow(/no row with id=999/);
+  });
 });

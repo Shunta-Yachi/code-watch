@@ -121,7 +121,10 @@ VALUES (?, ?, ?, ?)
 
   /** {@inheritdoc Repository.touchSession} */
   touchSession(id: number, at: string): void {
-    this.touchSessionStatement.run(at, id);
+    const result = this.touchSessionStatement.run(at, id);
+    if (result.changes === 0) {
+      throw new Error(`Cannot touch session: no row with id=${id}`);
+    }
   }
 
   /** {@inheritdoc Repository.createFileActivity} */
@@ -137,7 +140,10 @@ VALUES (?, ?, ?, ?)
 
   /** {@inheritdoc Repository.touchFileActivity} */
   touchFileActivity(id: number, at: string): void {
-    this.touchFileActivityStatement.run(at, id);
+    const result = this.touchFileActivityStatement.run(at, id);
+    if (result.changes === 0) {
+      throw new Error(`Cannot touch file activity: no row with id=${id}`);
+    }
   }
 
   /** {@inheritdoc Repository.createInactivity} */

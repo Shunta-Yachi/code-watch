@@ -108,7 +108,8 @@ CREATE INDEX IF NOT EXISTS idx_fileactivities_session ON FileActivities(session_
 CREATE INDEX IF NOT EXISTS idx_inactivities_activity ON Inactivities(file_activity_id);
 `);
 
-  const insertSeed = database.prepare<[InactivityType, string]>(`
+  const insertSeed: Database.Statement<[InactivityType, string]> =
+    database.prepare(`
 INSERT OR IGNORE INTO InactivityTypes (type, description)
 VALUES (?, ?)
 `);
