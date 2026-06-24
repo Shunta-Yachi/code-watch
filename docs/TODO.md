@@ -45,16 +45,16 @@ Goal: MVP機能の実装
 
 ### C-1. DB基盤
 
-- [ ] DB初期化処理 (globalStorageUri配下に code-watch.sqlite を作成)
-  - [ ] PRAGMA設定 (foreign_keys ON / WAL / STRICT)
-  - [ ] スキーマ作成 (Sessions / FileActivities / Inactivities / InactivityTypes)
-  - [ ] InactivityTypes の初期シード (sleep / unfocused / idle)
-- [ ] レコード操作関数の実装
-  - [ ] Session の作成 / ended_at 更新
-  - [ ] FileActivity の作成 / ended_at 更新
-  - [ ] Inactivity の作成
-- [ ] テスト: DB初期化処理 (PRAGMA / スキーマ / 初期シードの検証)
-- [ ] テスト: レコード操作関数 (各レコードの作成 / ended_at 更新の検証)
+- [x] DB初期化処理 (globalStorageUri配下に code-watch.sqlite を作成)
+  - [x] PRAGMA設定 (foreign_keys ON / WAL / STRICT)
+  - [x] スキーマ作成 (Sessions / FileActivities / Inactivities / InactivityTypes)
+  - [x] InactivityTypes の初期シード (sleep / unfocused / idle)
+- [x] レコード操作関数の実装
+  - [x] Session の作成 / ended_at 更新
+  - [x] FileActivity の作成 / ended_at 更新
+  - [x] Inactivity の作成
+- [x] テスト: DB初期化処理 (PRAGMA / スキーマ / 初期シードの検証)
+- [x] テスト: レコード操作関数 (各レコードの作成 / ended_at 更新の検証)
 - [ ] コードレビュー (C-1)
 
 ### C-2. 作業時間計測
