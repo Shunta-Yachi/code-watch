@@ -1,8 +1,9 @@
-# General
+
+# WebView Build Artifacts
+media/main.js
+media/main.js.map
+
+# Misc
 node_modules/
 dist/
 *.vsix
-
-# WebView ビルド生成物
-media/main.js
-media/main.js.map
