@@ -4,6 +4,7 @@
 export const DB_FILE_NAME = "code-watch.sqlite";
 
 /**
- * Interval used to persist open tracking intervals.
+ * Interval (in milliseconds) at which the active session's heartbeat fires
+ * to periodically persist tracking progress.
  */
 export const HEARTBEAT_INTERVAL_MS = 30_000;
