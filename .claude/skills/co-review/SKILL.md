@@ -26,7 +26,7 @@ effort: xhigh
   - developブランチであること
   - git working treeがクリーンであること
   - 以上の条件が満たされない場合、ユーザーに警告を出し、スキルの実行を継続するか終了するかを選ばせる
-- `git show HEAD -- $file_path`を実行
+- `git log -1 -p -- $file_path`を実行
   - 内容を精読
 
 ### Step 1. Ensure the user understands the code
@@ -47,7 +47,7 @@ effort: xhigh
 
 - コードのどこかに問題があるかユーザーに問う
   - ある場合: その指摘が妥当か判断する。ユーザーのコーディングレベルを考慮して、指摘を鵜呑みせず批判的に検討する
-  - ない場合: 4に進む
+  - ない場合: 3に進む
 
 ### Step 3. Review by Claude
 
@@ -56,11 +56,13 @@ effort: xhigh
 
 ### Step 4. Wrap Up
 
-- docs/personal/review-log/ の有無をチェック。なければ作る
+- docs/review-log/ の有無をチェック。なければ作る
 - 次の名前で Review Log ファイルを作成する: docs/review-log/<YYYY-MM-DD>\_<file_name>.md
   - <YYYY-MM-DD> は `date +%F` で取得した今日の日付
   - <file_name> は $file_path のベース名(Variables参照)
 - 以下の記法指示に従い、Review Logを書く
+- レビュー対象ファイルとReview Logをステージング・コミットする
+  - その他のファイルもワーキングツリーにある場合、ユーザーに対処の方針を問う
 
 ## Review Log Format
 
