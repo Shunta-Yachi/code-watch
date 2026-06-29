@@ -1,6 +1,6 @@
 ---
 name: co-review
-description: ユーザーと共にコードレビューを行う
+description: 指定されたファイルについて、ユーザーと共にコードレビューを行う
 argument-hint: "[file_path]"
 arguments: [file_path]
 model: Opus
@@ -25,7 +25,7 @@ effort: xhigh
 - 以下を確認
   - developブランチであること
   - git working treeがクリーンであること
-  - 以上の条件が満たされない場合、ユーザーに警告を出し、出力を終了する
+  - 以上の条件が満たされない場合、ユーザーに警告を出し、スキルの実行を継続するか終了するかを選ばせる
 - `git show HEAD -- $file_path`を実行
   - 内容を精読
 
