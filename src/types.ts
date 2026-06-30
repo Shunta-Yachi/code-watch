@@ -58,3 +58,64 @@ export interface InactivityRow {
   /** Reason for the inactive interval. */
   type: InactivityType;
 }
+
+/**
+ * Aggregated work time for a single file path.
+ */
+export interface FileAggregation {
+  /** Absolute path of the file. */
+  filePath: string;
+  /** Effective work duration after subtracting inactivity. */
+  workMs: number;
+}
+
+/**
+ * Aggregated work time for a workspace and its files.
+ */
+export interface WorkspaceAggregation {
+  /** Workspace identifier recorded on session rows. */
+  workspace: string;
+  /** Effective work duration across all files in the workspace. */
+  totalMs: number;
+  /** File-level work durations. */
+  files: FileAggregation[];
+}
+
+/**
+ * Aggregated work time for one local calendar day.
+ */
+export interface AggregationResult {
+  /** Local date in `YYYY-MM-DD` format. */
+  date: string;
+  /** Effective work duration across all workspaces and files. */
+  totalMs: number;
+  /** Workspace-level work durations. */
+  workspaces: WorkspaceAggregation[];
+}
+
+/**
+ * Messages sent from the WebView script to the extension host.
+ */
+export type MessageToExtension =
+  | {
+      /** Requests the initial render. */
+      type: "ready";
+    }
+  | {
+      /** Requests rendering for another local date. */
+      type: "changeDate";
+      /** Local date in `YYYY-MM-DD` format. */
+      date: string;
+    };
+
+/**
+ * Messages sent from the extension host to the WebView script.
+ */
+export interface MessageToWebview {
+  /** Instructs the WebView to render aggregation data. */
+  type: "render";
+  /** Aggregated work time for the selected day. */
+  result: AggregationResult;
+  /** IANA timezone used for the aggregation date boundaries. */
+  timeZone: string;
+}

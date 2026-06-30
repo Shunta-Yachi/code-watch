@@ -72,49 +72,49 @@ Goal: MVP機能の実装
 
 > 依存注入によりコアは単体テスト可 (FileRef + 偽クロック + 実インメモリDB)。VS Code イベント購読の配線部のみ 結合テスト / Milestone D でカバー (LLD 13章)
 
-- [ ] アクティブファイルの切り替え検出 (onDidChangeActiveTextEditor)
-- [ ] FileActivity の開始 / 終了の紐付け
-- [ ] テスト: ファイル別計測 (アクティブ切替での FileActivity 開始/終了, file スキーム判定)
+- [x] アクティブファイルの切り替え検出 (onDidChangeActiveTextEditor)
+- [x] FileActivity の開始 / 終了の紐付け
+- [x] テスト: ファイル別計測 (アクティブ切替での FileActivity 開始/終了, file スキーム判定)
 - [ ] コードレビュー (C-3)
 
 ### C-4. 非作業時間検出
 
-- [ ] idle 検出 (操作無し, 閾値3min)
-- [ ] unfocused 検出 (ウィンドウ非フォーカス, 閾値2min)
-- [ ] sleep 検出 (スリープ復帰, 閾値1min)
-- [ ] 閾値判定と優先順位制御 (sleep > unfocused > idle)
-- [ ] 閾値超過時のみ Inactivity レコード化
-- [ ] テスト: 非作業検出の状態機械 (idle/unfocused/sleep の区間生成 / 閾値超過判定 / 優先順位 sleep>unfocused>idle / sleepギャップによる truncate)
+- [x] idle 検出 (操作無し, 閾値3min)
+- [x] unfocused 検出 (ウィンドウ非フォーカス, 閾値2min)
+- [x] sleep 検出 (スリープ復帰, 閾値1min)
+- [x] 閾値判定と優先順位制御 (sleep > unfocused > idle)
+- [x] 閾値超過時のみ Inactivity レコード化
+- [x] テスト: 非作業検出の状態機械 (idle/unfocused/sleep の区間生成 / 閾値超過判定 / 優先順位 sleep>unfocused>idle / sleepギャップによる truncate)
 - [ ] コードレビュー (C-4)
 
 ### C-5. 設定
 
-- [ ] タイムゾーン判定の実装 (Intl 利用 / UTCフォールバック)
-- [ ] package.json 設定スキーマ (codeWatch.timezone を主要ゾーンの enum ドロップダウン + (custom) / codeWatch.timezoneCustom)
-- [ ] 設定値の読み込み (timezone / (custom)時は timezoneCustom / 空はOS自動 → UTCフォールバック)
-- [ ] テスト: タイムゾーン判定 (主要ゾーン選択 / custom / Intl 自動判定 / 不正時の UTC フォールバック)
+- [x] タイムゾーン判定の実装 (Intl 利用 / UTCフォールバック)
+- [x] package.json 設定スキーマ (codeWatch.timezone を主要ゾーンの enum ドロップダウン + (custom) / codeWatch.timezoneCustom)
+- [x] 設定値の読み込み (timezone / (custom)時は timezoneCustom / 空はOS自動 → UTCフォールバック)
+- [x] テスト: タイムゾーン判定 (主要ゾーン選択 / custom / Intl 自動判定 / 不正時の UTC フォールバック)
 - [ ] コードレビュー (C-5)
 
 ### C-6. 作業記録閲覧 (WebView)
 
-- [ ] WebView パネル実装
-  - [ ] WebviewViewProvider の登録 (codeWatch.activityView)
-  - [ ] WebView HTML / CSS 雛形の作成 (main.js は src/webview-ui/main.ts から生成)
-  - [ ] 共有メッセージ型を types.ts に定義 (MessageToExtension / MessageToWebview)
-  - [ ] src/webview-ui/main.ts (TS, ブラウザ側) 実装
-  - [ ] 拡張 ⇔ WebView 間メッセージング (集計データ受け渡し / 日付切り替え)
-- [ ] 集計ロジック実装
-  - [ ] 区間の日付按分ユーティリティ (タイムゾーン基準で [started_at, ended_at] を日ごとに分割)
+- [x] WebView パネル実装
+  - [x] WebviewViewProvider の登録 (codeWatch.activityView)
+  - [x] WebView HTML / CSS 雛形の作成 (main.js は src/webview-ui/main.ts から生成)
+  - [x] 共有メッセージ型を types.ts に定義 (MessageToExtension / MessageToWebview)
+  - [x] src/webview-ui/main.ts (TS, ブラウザ側) 実装
+  - [x] 拡張 ⇔ WebView 間メッセージング (集計データ受け渡し / 日付切り替え)
+- [x] 集計ロジック実装
+  - [x] 区間の日付按分ユーティリティ (タイムゾーン基準で [started_at, ended_at] を日ごとに分割)
     - 例: 6/1 22:00Z〜6/3 02:00Z → 6/1: 2h, 6/2: 24h, 6/3: 2h
-  - [ ] ファイル別作業時間の算出 (ended_at - started_at - 非作業時間, 日付別)
-  - [ ] ワークスペース別集計 (ファイル別作業時間の合計)
-  - [ ] 日付別トータル集計 (ファイル別作業時間の合計)
-- [ ] 表示UI実装
-  - [ ] トータル作業時間の表示
-  - [ ] ワークスペース別作業時間の表示
-  - [ ] ファイル別作業時間の表示
-- [ ] 日付切り替えボタンの実装
-- [ ] テスト: 集計ロジック (日付按分 / ファイル別算出 / ワークスペース別・トータル集計)
+  - [x] ファイル別作業時間の算出 (ended_at - started_at - 非作業時間, 日付別)
+  - [x] ワークスペース別集計 (ファイル別作業時間の合計)
+  - [x] 日付別トータル集計 (ファイル別作業時間の合計)
+- [x] 表示UI実装
+  - [x] トータル作業時間の表示
+  - [x] ワークスペース別作業時間の表示
+  - [x] ファイル別作業時間の表示
+- [x] 日付切り替えボタンの実装
+- [x] テスト: 集計ロジック (日付按分 / ファイル別算出 / ワークスペース別・トータル集計)
 - [ ] コードレビュー (C-6)
 
 ## Milestone D: パッケージング・リリース
