@@ -2,7 +2,7 @@
   "name": "code-watch",
   "displayName": "Code Watch",
   "description": "Track the time you spend working in VS Code.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "shunta-yachi",
   "license": "ISC",
   "type": "commonjs",

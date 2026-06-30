@@ -4,7 +4,7 @@ Description: 開発者用TODOリスト
 
 # TODO
 
-Final Goal: MVP作成
+Final Goal: MVP作成（v1.0.0 リリース済み）
 
 ## Milestone A: 開発環境セットアップ
 
@@ -66,7 +66,7 @@ Goal: MVP機能の実装
 - [x] ハートビートによる定期保存 (デフォルト30秒毎の ended_at 更新)
 - [x] 複数ワークスペース並行稼働の対応 (セッションを個別管理)
 - [x] テスト: セッション計測 (start/heartbeat/stop による Session 行の生成・ended_at 更新)
-- [ ] コードレビュー (C-2)
+- [x] コードレビュー (C-2)
 
 ### C-3. ファイル別計測
 
@@ -75,7 +75,7 @@ Goal: MVP機能の実装
 - [x] アクティブファイルの切り替え検出 (onDidChangeActiveTextEditor)
 - [x] FileActivity の開始 / 終了の紐付け
 - [x] テスト: ファイル別計測 (アクティブ切替での FileActivity 開始/終了, file スキーム判定)
-- [ ] コードレビュー (C-3)
+- [x] コードレビュー (C-3)
 
 ### C-4. 非作業時間検出
 
@@ -85,7 +85,7 @@ Goal: MVP機能の実装
 - [x] 閾値判定と優先順位制御 (sleep > unfocused > idle)
 - [x] 閾値超過時のみ Inactivity レコード化
 - [x] テスト: 非作業検出の状態機械 (idle/unfocused/sleep の区間生成 / 閾値超過判定 / 優先順位 sleep>unfocused>idle / sleepギャップによる truncate)
-- [ ] コードレビュー (C-4)
+- [x] コードレビュー (C-4)
 
 ### C-5. 設定
 
@@ -93,7 +93,7 @@ Goal: MVP機能の実装
 - [x] package.json 設定スキーマ (codeWatch.timezone を主要ゾーンの enum ドロップダウン + (custom) / codeWatch.timezoneCustom)
 - [x] 設定値の読み込み (timezone / (custom)時は timezoneCustom / 空はOS自動 → UTCフォールバック)
 - [x] テスト: タイムゾーン判定 (主要ゾーン選択 / custom / Intl 自動判定 / 不正時の UTC フォールバック)
-- [ ] コードレビュー (C-5)
+- [x] コードレビュー (C-5)
 
 ### C-6. 作業記録閲覧 (WebView)
 
@@ -115,7 +115,7 @@ Goal: MVP機能の実装
   - [x] ファイル別作業時間の表示
 - [x] 日付切り替えボタンの実装
 - [x] テスト: 集計ロジック (日付按分 / ファイル別算出 / ワークスペース別・トータル集計)
-- [ ] コードレビュー (C-6)
+- [x] コードレビュー (C-6)
 
 ## Milestone D: パッケージング・リリース
 
@@ -123,4 +123,4 @@ Goal: MVPの動作確認とリリース
 
 - [ ] linux-x64向け vsix のパッケージング (package:linux-x64)
 - [ ] WSL Remote環境での動作確認 (計測〜記録〜閲覧の一連)
-- [ ] コミットルールに沿ったリリース (バージョン更新 / master マージ / タグ付け)
+- [x] コミットルールに沿ったリリース (バージョン更新 / master マージ / タグ付け)

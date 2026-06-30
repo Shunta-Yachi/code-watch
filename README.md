@@ -2,7 +2,7 @@
 
 A VS Code extension that automatically tracks the time you spend working in your editor.
 
-> **Status:** Early development (MVP in progress). Core tracking is not yet functional.
+> **Status:** MVP released as `v1.0.0`.
 
 ## Features
 
@@ -11,6 +11,10 @@ A VS Code extension that automatically tracks the time you spend working in your
 - **Work record viewer** — a sidebar panel showing daily totals, broken down by workspace and by file, with date navigation.
 
 Records are stored locally in a single SQLite database.
+
+## Storage
+
+Code Watch stores records in `code-watch.sqlite` under VS Code's extension global storage directory. The database is reused across extension restarts unless that storage is removed.
 
 ## Settings
 
@@ -31,9 +35,14 @@ npm run compile   # build extension + webview
 npm run watch     # rebuild on change
 npm test          # run tests (Vitest)
 npm run lint      # ESLint
+npm run format    # Prettier
 ```
 
 Press `F5` in VS Code to launch the extension in a development host.
+
+## Release
+
+The MVP release is tagged as `v1.0.0`.
 
 ## License
 
