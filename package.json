@@ -2,7 +2,7 @@
   "name": "code-watch",
   "displayName": "Code Watch",
   "description": "Track the time you spend working in VS Code.",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "shunta-yachi",
   "license": "ISC",
   "type": "commonjs",
@@ -117,6 +117,12 @@
     "vitest": "^3.2.6"
   },
   "dependencies": {
-    "better-sqlite3": "^11.10.0"
+    "better-sqlite3": "^12.11.1"
+  },
+  "allowScripts": {
+    "@vscode/vsce-sign@2.0.9": true,
+    "better-sqlite3@12.11.1": true,
+    "esbuild@0.27.7": true,
+    "keytar@7.9.0": true
   }
 }

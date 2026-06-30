@@ -8,6 +8,7 @@
 - コミット・マージについては、 docs/commit-rules.md を参照してこれを行う
 - 原則、TypeScriptで書くすべての要素にはTSDocを記載する
 - TypeScriptファイル内におけるTSDoc・コメントはすべて英語で記述する
+- ファイルに変更を加えた後、必ず`npm run format`を実行する
 
 # About AI-Driven Development
 

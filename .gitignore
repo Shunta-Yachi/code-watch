@@ -1,8 +1,15 @@
-# General
+
+# WebView Build Artifacts
+media/main.js
+media/main.js.map
+media/types.js
+media/types.js.map
+media/webview-ui/main.js
+media/webview-ui/main.js.map
+media/webview-ui/types.js
+media/webview-ui/types.js.map
+
+# Misc
 node_modules/
 dist/
 *.vsix
-
-# WebView ビルド生成物
-media/main.js
-media/main.js.map
